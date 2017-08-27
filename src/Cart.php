@@ -396,8 +396,11 @@ class Cart
 
         $this->instance($currentInstance);
 
-        $this->getConnection()->table($this->getTableName())
-            ->where('identifier', $identifier)->delete();
+        // restore storedContent not delete it 
+        return $storedContent;
+        
+       // $this->getConnection()->table($this->getTableName())
+         //   ->where('identifier', $identifier)->delete();
     }
 
     /**
